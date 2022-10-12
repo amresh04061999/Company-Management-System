@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public status: string
 
-  constructor() { }
+  constructor() {
+    this.status = 'Add company'
+  }
 
   ngOnInit(): void {
   }
