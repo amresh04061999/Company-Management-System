@@ -1,1 +1,23 @@
-<p>company-form works!</p>
+<div class="p-4">
+  <form>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder=" Company Name">
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" rows="3" placeholder="Company Description"
+        formControlName="dompanydescription"></textarea>
+    </div>
+    <select class="form-select form-select-lg">
+      <option>Select Tag</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+    <div class="mb-3 mt-3">
+      <input type="file" class="file form-control">
+    </div>
+    <button type=" reset" class="btn btn-success mt-3 me-3">Reset</button>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>
