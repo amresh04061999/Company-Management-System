@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanyPipePipe } from './shared/pipe/company-pipe.pipe';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CompanyPipePipe } from './shared/pipe/company-pipe.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
