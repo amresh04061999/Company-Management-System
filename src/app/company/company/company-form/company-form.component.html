@@ -1,23 +1,41 @@
 <div class="p-4">
-  <form>
+  <form [formGroup]="companyform" (ngSubmit)="saveCompany()">
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder=" Company Name">
+      <input type="text" class="form-control" placeholder=" Company Name" formControlName="companyname">
+      <div
+        *ngIf="validator['companyname'].invalid && (issubmited || validator['companyname'].touched || validator['companyname'].dirty )">
+        <div *ngIf="validator['companyname'].errors?.['required']" class="text-danger">
+          Company Name is Required
+        </div>
+      </div>
     </div>
     <div class="mb-3">
       <textarea class="form-control" rows="3" placeholder="Company Description"
-        formControlName="dompanydescription"></textarea>
+        formControlName="companydescription"></textarea>
+      <div
+        *ngIf="validator['companydescription'].invalid && (issubmited || validator['companydescription'].touched || validator['companydescription'].dirty )">
+        <div *ngIf="validator['companydescription'].errors?.['required']" class="text-danger">
+          Company Description is Required
+        </div>
+      </div>
     </div>
-    <select class="form-select form-select-lg">
+    <select class="form-select form-select-lg" formControlName="selecttag">
       <option>Select Tag</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
     </select>
-    <div class="mb-3 mt-3">
-      <input type="file" class="file form-control">
+    <div
+      *ngIf="validator['selecttag'].invalid && (issubmited || validator['selecttag'].touched || validator['selecttag'].dirty )">
+      <div *ngIf="validator['selecttag'].errors?.['required']" class="text-danger">
+        Select tag is Required
+      </div>
     </div>
-    <button type=" reset" class="btn btn-success mt-3 me-3">Reset</button>
+    <!-- <div class="mb-3 mt-3">
+      <input type="file" class="file form-control">
+    </div> -->
+    <button type=" reset" class="btn btn-success mt-3 me-3" (click)="reset()">Reset</button>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
 </div>
