@@ -1,8 +1,10 @@
 {
   "company": [
     {
-
+      "companyname": "radika opto",
+      "companydescription": "radika",
+      "selecttag": "3",
+      "id": 1
     }
   ]
-
 }
