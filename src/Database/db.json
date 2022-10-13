@@ -5,6 +5,42 @@
       "companydescription": "radika",
       "selecttag": "3",
       "id": 1
+    },
+    {
+      "companyname": "radika opto",
+      "companydescription": "this is lightting company",
+      "selecttag": "1",
+      "id": 2
+    },
+    {
+      "companyname": "scsc",
+      "companydescription": "cscs",
+      "selecttag": "2",
+      "id": 3
+    },
+    {
+      "companyname": "opto",
+      "companydescription": "ssfsgf",
+      "selecttag": "2",
+      "id": 4
+    },
+    {
+      "companyname": "gfnfgn",
+      "companydescription": "ngfnfgn",
+      "selecttag": "3",
+      "id": 5
+    },
+    {
+      "companyname": "fvdfv",
+      "companydescription": "vdvdsv",
+      "selecttag": "3",
+      "id": 6
+    },
+    {
+      "companyname": "jmhgm",
+      "companydescription": "gfbfgbf",
+      "selecttag": "2",
+      "id": 7
     }
   ]
 }

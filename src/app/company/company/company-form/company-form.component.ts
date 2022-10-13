@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CompanyService } from '../../services/company.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class CompanyFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private companyServices: CompanyService,
+    private router: Router
   ) {
 
     this.companyform = this.fb.group({
@@ -29,21 +31,20 @@ export class CompanyFormComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  //add/edit Company  function
+  //add company details
   public saveCompany() {
-
     this.issubmited = true;
     if (this.companyform.valid) {
       this.companyServices.addcomapny(this.companyform.value).subscribe({
         next: (value) => {
           console.log(value)
+          this.reset()
+          this.issubmited = false;
+          this.router.navigate(['company'])
         }
-
       })
     }
   }
-
-
   public reset() {
     this.companyform.reset()
     this.issubmited = true;
