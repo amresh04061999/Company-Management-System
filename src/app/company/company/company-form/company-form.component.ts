@@ -31,21 +31,21 @@ export class CompanyFormComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  //add/edit Company  function
+  //add company details
   public saveCompany() {
-
     this.issubmited = true;
     if (this.companyform.valid) {
       this.companyServices.addcomapny(this.companyform.value).subscribe({
         next: (value) => {
           console.log(value)
-          this.router.navigate(['company'])
+
+          this.reset()
+          this.issubmited = false;
+
         }
       })
     }
   }
-
-
   public reset() {
     this.companyform.reset()
     this.issubmited = true;
