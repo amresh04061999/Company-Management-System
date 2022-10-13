@@ -8,9 +8,9 @@
     </div>
   </div>
   <div class="mb-3">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search.." [(ngModel)="search" ]>
-    </form>
+
+    <input class="form-control mr-sm-2" type="search" placeholder="Search.." [(ngModel)]="search">
+
   </div>
   <div>
     <table class="table">
@@ -26,7 +26,7 @@
       <tbody>
         <tr *ngFor="let item of companylist |filter:search">
           <td>
-            <span class="circle border border-dark rounded-circle">RD</span>
+            <span class="circle border border-dark rounded-circle">{{item.companyname | fcharactermarge}}</span>
           </td>
           <td>
             <span>{{item.companyname}}</span>
