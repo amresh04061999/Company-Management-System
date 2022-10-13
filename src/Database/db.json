@@ -1,14 +1,16 @@
 {
   "company": [
     {
-      "companyname": "radika opto",
-      "companydescription": "radika",
-      "selecttag": "3",
+      "companyname": "ramesh",
+      "companydescription": "shivam",
+      "selecttag": "JavaScript",
       "id": 1
     },
     {
-
-   
+      "companyname": "depak",
+      "companydescription": "ramesh",
+      "selecttag": "Angular",
+      "id": 2
     }
   ]
 }

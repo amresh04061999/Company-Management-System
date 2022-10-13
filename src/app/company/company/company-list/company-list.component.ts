@@ -33,6 +33,26 @@ export class CompanyListComponent implements OnInit {
     })
 
   }
+
+  //  delete company details
+  public deleteCompany(id: number) {
+    this.companyServices.deleteCompany(id).subscribe({
+      next: (value) => {
+        console.log(value)
+        this.getCompanyDetails();
+      },
+      error: (error) => {
+        alert('fail')
+
+      },
+      complete: () => {
+        alert('delete  Successfully')
+
+      }
+
+    })
+
+  }
   //  open form
   public addcompany() {
     this.router.navigate(['company/add'])

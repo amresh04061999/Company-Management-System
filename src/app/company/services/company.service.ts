@@ -22,7 +22,12 @@ export class CompanyService {
 
   // get Company in jsonserver
   getCompany(): Observable<company[]> {
-    const URL: string = this.baseURL + 'company';
+    const URL: string = `${this.baseURL}company`;
     return this._http.get<company[]>(URL)
+  }
+  // get Company in jsonserver
+  deleteCompany(id: number): Observable<company> {
+    const URL: string = `${this.baseURL}company/` + id;
+    return this._http.delete<company>(URL)
   }
 }
