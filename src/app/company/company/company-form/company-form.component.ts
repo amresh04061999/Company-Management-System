@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-company-form',
@@ -11,6 +12,7 @@ export class CompanyFormComponent implements OnInit {
   public issubmited = false
   constructor(
     private fb: FormBuilder,
+    private companyServices: CompanyService,
   ) {
 
     this.companyform = this.fb.group({
@@ -29,9 +31,18 @@ export class CompanyFormComponent implements OnInit {
   }
   //add/edit Company  function
   public saveCompany() {
-    this.issubmited = true;
 
+    this.issubmited = true;
+    if (this.companyform.valid) {
+      this.companyServices.addcomapny(this.companyform.value).subscribe({
+        next: (value) => {
+          console.log(value)
+        }
+
+      })
+    }
   }
+
 
   public reset() {
     this.companyform.reset()

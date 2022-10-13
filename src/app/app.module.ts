@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { CompanyPipePipe } from './shared/pipe/company-pipe.pipe';
 import { CoreModule } from './core/core.module';
+import { CompanyService } from './company/services/company.service';
 
 
 @NgModule({
