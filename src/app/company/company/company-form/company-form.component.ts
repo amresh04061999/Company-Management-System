@@ -38,9 +38,10 @@ export class CompanyFormComponent implements OnInit {
       this.companyServices.addcomapny(this.companyform.value).subscribe({
         next: (value) => {
           console.log(value)
+
           this.reset()
           this.issubmited = false;
-          this.router.navigate(['company'])
+
         }
       })
     }

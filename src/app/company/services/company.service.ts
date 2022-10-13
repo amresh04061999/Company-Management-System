@@ -11,10 +11,18 @@ export class CompanyService {
     this.baseURL = 'http://localhost:3000/'
   }
 
-  // add company in jsonserver
+
+
+  // add Company in jsonserver
   addcomapny(company: company): Observable<company> {
-    // const URL: string = `${this.baseURL}company`;
-    const URL: string = this.baseURL + 'company';
+    const URL: string = `${this.baseURL}company`;
     return this._http.post<company>(URL, company)
+  }
+
+
+  // get Company in jsonserver
+  getCompany(): Observable<company[]> {
+    const URL: string = this.baseURL + 'company';
+    return this._http.get<company[]>(URL)
   }
 }
