@@ -1,4 +1,5 @@
 <div class="p-4">
+  <h2 class="mb-3">ADD COMPANY</h2>
   <form [formGroup]="companyform" (ngSubmit)="saveCompany()">
     <div class="mb-3">
       <input type="text" class="form-control" placeholder=" Company Name" formControlName="companyname">
@@ -21,10 +22,12 @@
     </div>
     <select class="form-select form-select-lg" formControlName="selecttag">
       <option>Select Tag</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
+      <option>Rect</option>
+      <option>Angular</option>
+      <option>JavaScript</option>
+      <option>java</option>
+      <option>html</option>
+      <option>scss</option>
     </select>
     <div
       *ngIf="validator['selecttag'].invalid && (issubmited || validator['selecttag'].touched || validator['selecttag'].dirty )">
@@ -33,9 +36,9 @@
       </div>
     </div>
     <!--  -->
-    <div class="mb-3 mt-3">
+    <!-- <div class="mb-3 mt-3">
       <input type="file" class="file form-control">
-    </div>
+    </div> -->
     <div class="d-flex justify-content-between">
       <div></div>
       <div>
