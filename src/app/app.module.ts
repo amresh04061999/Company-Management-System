@@ -13,4 +13,4 @@ import { CompanyService } from './company/services/company.service';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
