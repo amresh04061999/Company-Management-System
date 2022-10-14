@@ -3,18 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './company.component';
 import { CompanyFormComponent } from './company/company-form/company-form.component';
 
-const routes: Routes = [{
-  path: '', component: CompanyComponent,
+const routes: Routes = [
+  {
+    path: '',
+    component: CompanyComponent,
 
-  children: [
-    {
-      path: 'add', component: CompanyFormComponent
-    }
-  ]
-}];
+    children: [
+      {
+        path: 'add',
+        component: CompanyFormComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: CompanyFormComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CompanyRoutingModule { }
+export class CompanyRoutingModule {}
