@@ -8,4 +8,4 @@ import { FcharactermargePipe } from './pipe/fcharactermarge.pipe';
   imports: [CommonModule],
   exports: [FilterPipe, FcharactermargePipe],
 })
-export class SharedModule {}
+export class SharedModule { }

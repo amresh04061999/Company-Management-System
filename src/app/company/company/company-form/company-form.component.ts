@@ -40,9 +40,11 @@ export class CompanyFormComponent implements OnInit {
   get validator(): { [key: string]: AbstractControl<any> } {
     return this.companyform.controls;
   }
+
   ngOnInit(): void {
     this.status = this.id ? 'EDIT COMPANY' : 'ADD COMPANY'
   }
+
   //add company details
   public saveCompany() {
     this.issubmited = true;
@@ -83,6 +85,6 @@ export class CompanyFormComponent implements OnInit {
   }
   public reset() {
     this.companyform.reset();
-    this.issubmited = true;
+
   }
 }
