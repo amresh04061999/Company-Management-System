@@ -22,4 +22,4 @@ import { SharedModule } from '../shared/shared.module';
   ],
   providers: [CompanyService],
 })
-export class CompanyModule {}
+export class CompanyModule { }

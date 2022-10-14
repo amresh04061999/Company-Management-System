@@ -24,11 +24,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of companylist |filter:search">
-
+        <tr *ngFor="let item of companylist |filter:search" (click)="editcomapny(item)">
           <td>
-            <a (click)="editcomapny(item)"> <span class="circle border border-dark rounded-circle">{{item.companyname |
-                fcharactermarge}}</span></a>
+            <span class="circle border border-dark rounded-circle">{{item.companyname |
+              fcharactermarge}}</span>
           </td>
           <td>
             <span>{{item.companyname}}</span>

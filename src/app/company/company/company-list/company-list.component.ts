@@ -9,18 +9,31 @@ import { CompanyService } from '../../services/company.service';
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-  public companylist: any;
+  public companylist: company[];
   public search = '';
   constructor(
     private router: Router,
     private companyServices: CompanyService
-  ) { }
+  ) {
+    this.companylist = []
+  }
 
   ngOnInit(): void {
     this.getCompanyDetails();
+
+    // Update add record in table
+    this.companyServices.listcompany.subscribe((Response: company) => {
+      this.companylist.push(Response)
+    })
+
+    // Update Record
+    this.companyServices.listupdate.subscribe((result: company) => {
+      const i = this.companylist.findIndex((value: any) => value.id === result.id)
+      this.companylist.splice(i, 1, result)
+    })
   }
 
-  //  get CompanyDetails
+  //  Get CompanyDetails
   public getCompanyDetails() {
     this.companyServices.getCompany().subscribe({
       next: (value) => {
@@ -31,7 +44,7 @@ export class CompanyListComponent implements OnInit {
     });
   }
 
-  //  delete company details
+  //  Delete company details
   public deleteCompany(id: number) {
     const deletePop = confirm('are you sure you want to delet this data?')
     if (deletePop) {
@@ -51,6 +64,7 @@ export class CompanyListComponent implements OnInit {
     }
   }
 
+  // Open form
   public editcomapny(item: company): void {
     this.router.navigate(['company/edit', item.id]);
   }
