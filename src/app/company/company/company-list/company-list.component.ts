@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
 
 @Component({
@@ -45,6 +46,11 @@ export class CompanyListComponent implements OnInit {
       },
     });
   }
+
+  public editcomapny(item: company): void {
+    this.router.navigate(['company/edit', item.id]);
+  }
+
   //  open form
   public addcompany() {
     this.router.navigate(['company/add']);
