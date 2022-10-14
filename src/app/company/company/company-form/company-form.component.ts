@@ -50,19 +50,29 @@ export class CompanyFormComponent implements OnInit {
       if (this.id) {
         this.companyServices
           .editecomapny(this.companyform.value, this.id)
-          .subscribe((res) => { });
+          .subscribe({
+            next: (value) => {
+              this.reset();
+              this.issubmited = false;
+              this.companyServices.listupdate.next(value)
+              this.router.navigate(['company']);
+            },
+          });
       }
       else {
+        // edite company
         this.companyServices.addcomapny(this.companyform.value).subscribe({
           next: (value) => {
-            console.log(value);
+            this.companyServices.listcompany.next(value)
             this.reset();
             this.issubmited = false;
+            this.router.navigate(['company']);
           },
         });
       }
     }
   }
+  // get company list
   public getcompanydetailsById() {
     this.companyServices.getCompanyId(this.id).subscribe({
       next: (res) => {

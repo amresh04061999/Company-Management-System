@@ -1,13 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { company } from '../model/company.model';
 
 @Injectable()
 export class CompanyService {
+  // Create subject
+  public listcompany: Subject<company>
+  public listupdate: Subject<company>
   public baseURL: string;
   constructor(private _http: HttpClient) {
     this.baseURL = 'http://localhost:3000/';
+
+    // Create subject
+    this.listcompany = new Subject();
+
+    this.listupdate = new Subject();
   }
 
   // add Company in jsonserver
@@ -36,4 +44,5 @@ export class CompanyService {
     const URL: string = `${this.baseURL}company/` + id;
     return this._http.put<company>(URL, company);
   }
+
 }

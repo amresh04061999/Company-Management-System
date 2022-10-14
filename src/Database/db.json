@@ -1,10 +1,28 @@
 {
   "company": [
     {
-      "companyname": "fbfb  dsfcdv",
-      "companydescription": "dvdvdv",
+      "companyname": "xcxccsscscdcd",
+      "companydescription": "ccxcxc",
+      "selecttag": "Angular",
+      "id": 2
+    },
+    {
+      "companyname": "radika opto",
+      "companydescription": "this is radika",
       "selecttag": "JavaScript",
-      "id": 1
+      "id": 3
+    },
+    {
+      "companyname": "axxax",
+      "companydescription": "axaxax",
+      "selecttag": "JavaScript",
+      "id": 4
+    },
+    {
+      "companyname": "dcc",
+      "companydescription": "dcdcd",
+      "selecttag": "Angular",
+      "id": 5
     }
   ]
 }
