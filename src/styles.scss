@@ -10,7 +10,10 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 /* Importing Bootstrap SCSS file. */
 @import "assets/scss/base/index";
 @import "assets/scss/vendar/index";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";

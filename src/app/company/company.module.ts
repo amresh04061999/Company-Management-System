@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './services/company.service';
 import { SharedModule } from '../shared/shared.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [CompanyComponent, CompanyListComponent, CompanyFormComponent],
@@ -19,6 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     SharedModule,
     FormsModule,
+    NgSelectModule
+
   ],
   providers: [CompanyService],
 })

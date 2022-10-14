@@ -18,6 +18,12 @@ export class CompanyFormComponent implements OnInit {
   public issubmited = false;
   public id: any;
   public status = ''
+  // array  of selecter
+  users = [
+    { name: 'angular' },
+    { name: 'java' },
+    { name: 'javascript' }
+  ];
   constructor(
     private fb: FormBuilder,
     private companyServices: CompanyService,
@@ -29,7 +35,6 @@ export class CompanyFormComponent implements OnInit {
       companydescription: ['', [Validators.required]],
       selecttag: ['', [Validators.required]],
     });
-
     this.activaterouter.params.subscribe((res) => {
       this.id = res['id'];
       if (this.id) {

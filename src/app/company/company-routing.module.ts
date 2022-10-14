@@ -10,6 +10,12 @@ const routes: Routes = [
 
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'add'
+
+      },
+      {
         path: 'add',
         component: CompanyFormComponent,
       },
@@ -25,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CompanyRoutingModule {}
+export class CompanyRoutingModule { }

@@ -20,15 +20,17 @@
         </div>
       </div>
     </div>
-    <select class="form-select form-select-lg" formControlName="selecttag">
-      <option>Select Tag</option>
-      <option>Rect</option>
-      <option>Angular</option>
-      <option>JavaScript</option>
-      <option>java</option>
-      <option>html</option>
-      <option>scss</option>
-    </select>
+
+
+
+    <!-- <div class="mb-3 mt-3">
+      <input type="file" class="file form-control">
+    </div> -->
+
+
+    <ng-select [items]="users" bindLabel="name" bindValue="id" [multiple]="true" placeholder="Select tag" class="mt-2"
+      formControlName="selecttag">
+    </ng-select>
     <div
       *ngIf="validator['selecttag'].invalid && (issubmited || validator['selecttag'].touched || validator['selecttag'].dirty )">
       <div *ngIf="validator['selecttag'].errors?.['required']" class="text-danger">
@@ -36,9 +38,6 @@
       </div>
     </div>
 
-    <div class="mb-3 mt-3">
-      <input type="file" class="file form-control">
-    </div>
     <div class="d-flex justify-content-between">
       <div></div>
       <div>
