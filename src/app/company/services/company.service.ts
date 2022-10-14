@@ -14,6 +14,7 @@ export class CompanyService {
 
     // Create subject
     this.listcompany = new Subject();
+
     this.listupdate = new Subject();
   }
 
