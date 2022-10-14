@@ -3,7 +3,9 @@
     {
       "companyname": "xcxccsscscdcd",
       "companydescription": "ccxcxc",
-      "selecttag": "Angular",
+      "selecttag": [
+        "angular"
+      ],
       "id": 2
     },
     {
@@ -11,6 +13,95 @@
       "companydescription": "this is radika",
       "selecttag": "JavaScript",
       "id": 3
+    },
+    {
+      "companyname": "sss",
+      "companydescription": "sss",
+      "selecttag": [
+        "java"
+      ],
+      "id": 4
+    },
+    {
+      "companyname": "ssscscsc",
+      "companydescription": "ssscscscc",
+      "selecttag": [
+        "angular",
+        "javascript"
+      ],
+      "id": 5
+    },
+    {
+      "companyname": "sxcx",
+      "companydescription": "scsc",
+      "selecttag": [
+        "java"
+      ],
+      "id": 6
+    },
+    {
+      "companyname": "cscs",
+      "companydescription": "cscs",
+      "selecttag": [
+        "angular"
+      ],
+      "id": 7
+    },
+    {
+      "companyname": "cx xc ",
+      "companydescription": " xc xc",
+      "selecttag": [
+        "java"
+      ],
+      "id": 8
+    },
+    {
+      "companyname": "x  xc",
+      "companydescription": " zx ",
+      "selecttag": [
+        "java"
+      ],
+      "id": 9
+    },
+    {
+      "companyname": "xz zx ",
+      "companydescription": " zx zx",
+      "selecttag": [
+        "java"
+      ],
+      "id": 10
+    },
+    {
+      "companyname": "z x zx",
+      "companydescription": "xz dvfdxfb ",
+      "selecttag": [
+        "angular"
+      ],
+      "id": 11
+    },
+    {
+      "companyname": "dcd",
+      "companydescription": "cdcsdc",
+      "selecttag": [
+        "javascript"
+      ],
+      "id": 12
+    },
+    {
+      "companyname": "cdscsdc",
+      "companydescription": "dcdc",
+      "selecttag": [
+        "java"
+      ],
+      "id": 13
+    },
+    {
+      "companyname": "scsc",
+      "companydescription": "cscsc",
+      "selecttag": [
+        null
+      ],
+      "id": 14
     }
   ]
 }
