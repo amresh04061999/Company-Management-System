@@ -17,6 +17,7 @@ export class CompanyFormComponent implements OnInit {
   public companyform: FormGroup;
   public issubmited = false;
   public id: any;
+  public status = ''
   constructor(
     private fb: FormBuilder,
     private companyServices: CompanyService,
@@ -36,11 +37,12 @@ export class CompanyFormComponent implements OnInit {
       }
     });
   }
-
   get validator(): { [key: string]: AbstractControl<any> } {
     return this.companyform.controls;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.status = this.id ? 'EDIT COMPANY' : 'ADD COMPANY'
+  }
   //add company details
   public saveCompany() {
     this.issubmited = true;
@@ -48,19 +50,19 @@ export class CompanyFormComponent implements OnInit {
       if (this.id) {
         this.companyServices
           .editecomapny(this.companyform.value, this.id)
-          .subscribe((res) => {});
+          .subscribe((res) => { });
       }
-    } else {
-      this.companyServices.addcomapny(this.companyform.value).subscribe({
-        next: (value) => {
-          console.log(value);
-          this.reset();
-          this.issubmited = false;
-        },
-      });
+      else {
+        this.companyServices.addcomapny(this.companyform.value).subscribe({
+          next: (value) => {
+            console.log(value);
+            this.reset();
+            this.issubmited = false;
+          },
+        });
+      }
     }
   }
-
   public getcompanydetailsById() {
     this.companyServices.getCompanyId(this.id).subscribe({
       next: (res) => {
