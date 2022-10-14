@@ -14,7 +14,7 @@ export class CompanyListComponent implements OnInit {
   constructor(
     private router: Router,
     private companyServices: CompanyService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCompanyDetails();
@@ -33,18 +33,22 @@ export class CompanyListComponent implements OnInit {
 
   //  delete company details
   public deleteCompany(id: number) {
-    this.companyServices.deleteCompany(id).subscribe({
-      next: (value) => {
-        console.log(value);
-        this.getCompanyDetails();
-      },
-      error: (error) => {
-        alert('fail');
-      },
-      complete: () => {
-        alert('delete  Successfully');
-      },
-    });
+    const deletePop = confirm('are you sure you want to delet this data?')
+    if (deletePop) {
+
+      this.companyServices.deleteCompany(id).subscribe({
+        next: (value) => {
+          console.log(value);
+          this.getCompanyDetails();
+        },
+        error: (error) => {
+          alert('fail');
+        },
+        complete: () => {
+          alert('delete  Successfully');
+        },
+      });
+    }
   }
 
   public editcomapny(item: company): void {
