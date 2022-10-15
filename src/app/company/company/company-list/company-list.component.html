@@ -18,13 +18,14 @@
           <th scope="col">ComapnyName</th>
           <th scope="col">Company-Description</th>
           <th scope="col">Select Tag</th>
+          <th scope="col">image</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of companylist | filter:search "(click)="editcomapny(item)">
+        <tr *ngFor="let item of companylist | filter:search ">
           <td>
-            <span class="circle border border-dark rounded-circle" >{{item.companyname |
+            <span class="circle border border-dark rounded-circle" (click)="editcomapny(item)" >{{item.companyname |
               fcharactermarge}}</span>
           </td>
           <td>
@@ -35,6 +36,9 @@
           </td>
           <td>
             <span>{{item.selecttag}}</span>
+          </td>
+          <td>
+            <span> <img src="{{item.imagefile}}"></span>
           </td>
           <td><button type="button" class="btn btn-danger " (click)="deleteCompany(item.id)">X</button></td>
         </tr>
