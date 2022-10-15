@@ -1,48 +1,50 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { company } from '../model/company.model';
+import { Company } from '../model/company.model';
 
 @Injectable()
 export class CompanyService {
-  // Create subject
-  public listcompany: Subject<company>
-  public listupdate: Subject<company>
+  // Create subject add
+  public listCompany: Subject<Company>;
+  // Create subject wditw
+  public listUpdate: Subject<Company>;
+
   public baseURL: string;
   constructor(private _http: HttpClient) {
+    // json url
     this.baseURL = 'http://localhost:3000/';
 
-    // Create subject
-    this.listcompany = new Subject();
-
-    this.listupdate = new Subject();
+    // Create subject add list update
+    this.listCompany = new Subject();
+    // Create subject edit list update
+    this.listUpdate = new Subject();
   }
 
   // add Company in jsonserver
-  addcomapny(company: company): Observable<company> {
+  addComapny(company: Company): Observable<Company> {
     const URL: string = `${this.baseURL}company`;
-    return this._http.post<company>(URL, company);
+    return this._http.post<Company>(URL, company);
   }
 
   // get Company in jsonserver
-  getCompany(): Observable<company[]> {
+  getCompany(): Observable<Company[]> {
     const URL: string = `${this.baseURL}company`;
-    return this._http.get<company[]>(URL);
+    return this._http.get<Company[]>(URL);
   }
   // get Company in jsonserver
-  deleteCompany(id: number): Observable<company> {
+  deleteCompany(id: number): Observable<Company> {
     const URL: string = `${this.baseURL}company/` + id;
-    return this._http.delete<company>(URL);
+    return this._http.delete<Company>(URL);
   }
   // getcompanybyid Company in jsonserver
-  getCompanyId(id: number): Observable<company> {
+  getCompanyId(id: number): Observable<Company> {
     const URL: string = `${this.baseURL}company/` + id;
-    return this._http.get<company>(URL);
+    return this._http.get<Company>(URL);
   }
   // getcompanybyid Company in jsonserver
-  editecomapny(company: company, id: number): Observable<company> {
+  editeComapny(company: Company, id: number): Observable<Company> {
     const URL: string = `${this.baseURL}company/` + id;
-    return this._http.put<company>(URL, company);
+    return this._http.put<Company>(URL, company);
   }
-
 }

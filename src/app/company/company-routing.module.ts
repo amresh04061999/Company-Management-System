@@ -12,16 +12,14 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'add'
-
+        redirectTo: 'add',
       },
       {
         path: 'add',
-        component: CompanyFormComponent,
-      },
+        component: CompanyFormComponent, data: { breadcrumb: 'ADD COMPANY' }},
       {
         path: 'edit/:id',
-        component: CompanyFormComponent,
+        component: CompanyFormComponent,data: { breadcrumb: 'EDIT COMPANY' }
       },
     ],
   },
@@ -31,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CompanyRoutingModule { }
+export class CompanyRoutingModule {}

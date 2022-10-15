@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { company } from '../../model/company.model';
+import { Company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
 
 @Component({
@@ -9,66 +9,62 @@ import { CompanyService } from '../../services/company.service';
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-  public companylist: company[];
-  public search = '';
-  constructor(
-    private router: Router,
-    private companyServices: CompanyService
-  ) {
-    this.companylist = []
+  // getcompany list variable
+  public companylist: Company[];
+  //search variable
+  public search: string;
+  constructor(private router: Router, private companyServices: CompanyService) {
+    this.companylist = [];
+    this.search = '';
   }
 
   ngOnInit(): void {
+    //  get company list
     this.getCompanyDetails();
 
-    // Update add record in table
-    this.companyServices.listcompany.subscribe((Response: company) => {
-      this.companylist.push(Response)
-    })
+    // Update add record in table suing subject
+    this.companyServices.listCompany.subscribe((Response: Company) => {
+      this.companylist.push(Response);
+    });
 
-    // Update Record
-    this.companyServices.listupdate.subscribe((result: company) => {
-      const i = this.companylist.findIndex((value: any) => value.id === result.id)
-      this.companylist.splice(i, 1, result)
-    })
+    //  Update edit record in table using subject
+    this.companyServices.listUpdate.subscribe((result: Company) => {
+      const i = this.companylist.findIndex(
+        (value: any) => value.id === result.id
+      );
+      this.companylist.splice(i, 1, result);
+    });
   }
 
   //  Get CompanyDetails
   public getCompanyDetails() {
     this.companyServices.getCompany().subscribe({
       next: (value) => {
-        console.log(value);
         this.companylist = value;
-        this.router.navigate(['company']);
       },
     });
   }
 
   //  Delete company details
   public deleteCompany(id: number) {
-    const deletePop = confirm('are you sure you want to delet this data?')
+    const deletePop = confirm('Are you sure you want to delete this data?');
     if (deletePop) {
-
       this.companyServices.deleteCompany(id).subscribe({
         next: (value) => {
-          console.log(value);
+          // call get function
           this.getCompanyDetails();
+          this.router.navigate(['company/add']);
         },
-        error: (error) => {
-          alert('fail');
-        },
-        complete: () => {
-          alert('delete  Successfully');
-        },
+        error: (error) => {},
+        complete: () => {},
       });
     }
   }
 
   // Open form
-  public editcomapny(item: company): void {
+  public editcomapny(item: Company): void {
     this.router.navigate(['company/edit', item.id]);
   }
-
   //  open form
   public addcompany() {
     this.router.navigate(['company/add']);
