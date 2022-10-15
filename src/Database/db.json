@@ -1,13 +1,30 @@
 {
   "company": [
     {
-      "companyname": "aa",
-      "companydescription": "aa",
+      "companyname": "vv",
+      "companydescription": "ccc",
       "selecttag": [
-        "angular",
-        "javascript"
+        "angular"
       ],
       "id": 1
+    },
+    {
+      "companyname": "zz",
+      "companydescription": "zz",
+      "selecttag": [
+        "angular"
+      ],
+      "imagefile": "C:\\fakepath\\download.jpg",
+      "id": 2
+    },
+    {
+      "companyname": "cc",
+      "companydescription": "cc",
+      "selecttag": [
+        "angular"
+      ],
+      "imagefile": "C:\\fakepath\\Skinput_arm_buttons.jpg",
+      "id": 3
     }
   ]
 }

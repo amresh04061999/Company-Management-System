@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
 
@@ -13,7 +14,9 @@ export class CompanyListComponent implements OnInit {
   public companylist: Company[];
   //search variable
   public search: string;
-  constructor(private router: Router, private companyServices: CompanyService) {
+  constructor(private router: Router, private companyServices: CompanyService,
+    private notification:NotificationService
+    ) {
     this.companylist = [];
     this.search = '';
   }
@@ -48,16 +51,25 @@ export class CompanyListComponent implements OnInit {
   //  Delete company details
   public deleteCompany(id: number) {
     const deletePop = confirm('Are you sure you want to delete this data?');
+  
     if (deletePop) {
       this.companyServices.deleteCompany(id).subscribe({
         next: (value) => {
           // call get function
           this.getCompanyDetails();
-          this.router.navigate(['company/add']);
+         
         },
-        error: (error) => {},
-        complete: () => {},
+        error: (error) => {
+          // this.notification.showError("fail Delete","delete")
+        },
+        complete: () => {
+          this.notification.showError("Delete successfully","Delete")
+          
+        },
       });
+    }
+    else{
+      this.notification.showInfo("Cancel successfully","Cancel")
     }
   }
 
