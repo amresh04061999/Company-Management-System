@@ -63,7 +63,7 @@ export class CompanyListComponent implements OnInit {
           // this.notification.showError("fail Delete","delete")
         },
         complete: () => {
-          this.notification.showError("Delete successfully","Delete")
+          this.notification.showSuccess("Delete successfully","Delete")
           
         },
       });
@@ -78,7 +78,7 @@ export class CompanyListComponent implements OnInit {
     this.router.navigate(['company/edit', item.id]);
   }
   //  open form
-  public addcompany() {
+  public addcompany() : void{
     this.router.navigate(['company/add']);
   }
 }
