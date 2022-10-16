@@ -1,22 +1,15 @@
 {
   "company": [
     {
-      "companyname": "a",
-      "companydescription": "a",
+      "companyname": "radika opto",
+      "companydescription": "this is lighting ",
       "selecttag": [
-        "angular"
+        "angular",
+        "java",
+        "javascript"
       ],
       "imagefile": "C:\\fakepath\\images.jpg",
       "id": 1
-    },
-    {
-      "companyname": "z",
-      "companydescription": "s",
-      "selecttag": [
-        "angular"
-      ],
-      "imagefile": "C:\\fakepath\\images.jpg",
-      "id": 2
     }
   ]
 }
