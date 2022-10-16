@@ -49,21 +49,20 @@ export class CompanyListComponent implements OnInit {
   }
 
   //  Delete company details
-  public deleteCompany(id: number) {
-    const deletePop = confirm('Are you sure you want to delete this data?');
+  public deleteCompany(item:Company) {
+    const deletePop = confirm(`Are you sure you want to delete this data? Delete ${item.companyname}`)
   
     if (deletePop) {
-      this.companyServices.deleteCompany(id).subscribe({
+      this.companyServices.deleteCompany(Number(item.id)).subscribe({
         next: (value) => {
           // call get function
-          this.getCompanyDetails();
-         
+          this.getCompanyDetails(); 
         },
         error: (error) => {
           // this.notification.showError("fail Delete","delete")
         },
         complete: () => {
-          this.notification.showSuccess("Delete successfully","Delete")
+          this.notification.showSuccess(`Delete successfully ${item.companyname}`,"Delete")
           
         },
       });
