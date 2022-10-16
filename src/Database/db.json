@@ -1,30 +1,22 @@
 {
   "company": [
     {
-      "companyname": "vv",
-      "companydescription": "ccc",
+      "companyname": "a",
+      "companydescription": "a",
       "selecttag": [
         "angular"
       ],
+      "imagefile": "C:\\fakepath\\images.jpg",
       "id": 1
     },
     {
-      "companyname": "zz",
-      "companydescription": "zz",
+      "companyname": "z",
+      "companydescription": "s",
       "selecttag": [
         "angular"
       ],
-      "imagefile": "C:\\fakepath\\download.jpg",
+      "imagefile": "C:\\fakepath\\images.jpg",
       "id": 2
-    },
-    {
-      "companyname": "cc",
-      "companydescription": "cc",
-      "selecttag": [
-        "angular"
-      ],
-      "imagefile": "C:\\fakepath\\Skinput_arm_buttons.jpg",
-      "id": 3
     }
   ]
 }
