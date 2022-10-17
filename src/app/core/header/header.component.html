@@ -10,8 +10,10 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Company</li>
           <li class="breadcrumb-item" *ngFor='let breadcrumb of breadcrumbs'>
-             <a  class="text-white text-decoration-none" [routerLink]='[breadcrumb.url, breadcrumb.params]'>{{ breadcrumb.label }}</a></li>
-        </ol> 
+            <a class="text-white text-decoration-none" [routerLink]='[breadcrumb.url, breadcrumb.params]'>{{
+              breadcrumb.label }}</a>
+          </li>
+        </ol>
       </nav>
     </div>
   </nav>

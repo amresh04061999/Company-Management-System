@@ -9,4 +9,4 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [HeaderComponent],
 })
-export class CoreModule {}
+export class CoreModule { }

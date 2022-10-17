@@ -1,14 +1,16 @@
 {
   "company": [
+
     {
-      "companyname": "radika opto",
-      "companydescription": "this is lighting ",
-      "selecttag": [
-        "angular",
-        "java",
-        "javascript"
-      ],
-      "imagefile": "C:\\fakepath\\images.jpg",
+      "companyname": "ss",
+      "companydescription": "ss",
+      "selecttag":
+        {
+          "id": "1",
+          "name": "angular"
+        },
+
+      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
       "id": 1
     }
   ]
