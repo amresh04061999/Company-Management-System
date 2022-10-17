@@ -15,8 +15,8 @@ export class CompanyListComponent implements OnInit {
   //search variable
   public search: string;
   constructor(private router: Router, private companyServices: CompanyService,
-    private notification:NotificationService
-    ) {
+    private notification: NotificationService
+  ) {
     this.companylist = [];
     this.search = '';
   }
@@ -49,26 +49,26 @@ export class CompanyListComponent implements OnInit {
   }
 
   //  Delete company details
-  public deleteCompany(item:Company) {
+  public deleteCompany(item: Company) {
     const deletePop = confirm(`Are you sure you want to delete this data? Delete ${item.companyname}`)
-  
+
     if (deletePop) {
       this.companyServices.deleteCompany(Number(item.id)).subscribe({
         next: (value) => {
           // call get function
-          this.getCompanyDetails(); 
+          this.getCompanyDetails();
         },
         error: (error) => {
           // this.notification.showError("fail Delete","delete")
         },
         complete: () => {
-          this.notification.showSuccess(`Delete successfully ${item.companyname}`,"Delete")
-          
+          this.notification.showSuccess(`Delete successfully ${item.companyname}`, "Delete")
+
         },
       });
     }
-    else{
-      this.notification.showInfo("Cancel successfully","Cancel")
+    else {
+      this.notification.showInfo("Cancel successfully", "Cancel")
     }
   }
 
@@ -77,7 +77,7 @@ export class CompanyListComponent implements OnInit {
     this.router.navigate(['company/edit', item.id]);
   }
   //  open form
-  public addcompany() : void{
+  public addcompany(): void {
     this.router.navigate(['company/add']);
   }
 }

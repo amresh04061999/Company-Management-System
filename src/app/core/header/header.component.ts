@@ -10,7 +10,7 @@ import { filter, map } from 'rxjs';
 export class HeaderComponent implements OnInit {
   public id: any
   breadcrumbs: any;
-  constructor( private activatedRoute: ActivatedRoute,
+  constructor(private activatedRoute: ActivatedRoute,
     private router: Router) {
   }
   ngOnInit(): void {

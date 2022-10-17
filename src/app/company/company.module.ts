@@ -21,8 +21,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     FormsModule,
     NgSelectModule,
- 
-   
+
+
   ],
   providers: [CompanyService],
 })

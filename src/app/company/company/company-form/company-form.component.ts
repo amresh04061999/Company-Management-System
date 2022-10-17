@@ -21,35 +21,35 @@ export class CompanyFormComponent implements OnInit {
   // companyid variable
   public comanyID: number;
   // change status variable
-  public status:string;
-   // change status button variable
-  statusbutton:string;
+  public status: string;
+  // change status button variable
+  statusbutton: string;
 
   // array  of selecter
   users = [
-    { id: 'angular', name: 'angular' },
-    { id: 'java', name: 'java' },
-    { id: 'javascript', name: 'javascript' },
+    { id: '1', name: 'angular' },
+    { id: '2', name: 'java' },
+    { id: '3', name: 'javascript' },
   ];
-  url: any; 
-	msg = "";
+  url: any;
+  msg = "";
   constructor(
     private fb: FormBuilder,
     private companyServices: CompanyService,
     private router: Router,
     private activaterouter: ActivatedRoute,
-    private notification:NotificationService
+    private notification: NotificationService
   ) {
     this.comanyID = 0;
-    this.status='',
-    this.statusbutton='',
-    //  form validation
-    this.companyform = this.fb.group({
-      companyname: ['', [Validators.required]],
-      companydescription: ['', [Validators.required]],
-      selecttag: ['', [Validators.required]],
-      imagefile: ['', [Validators.required]],
-    });
+    this.status = '',
+      this.statusbutton = '',
+      //  form validation
+      this.companyform = this.fb.group({
+        companyname: ['', [Validators.required]],
+        companydescription: ['', [Validators.required]],
+        selecttag: ['', [Validators.required]],
+        imagefile: ['', [Validators.required]],
+      });
 
     // get comapny Id
     this.activaterouter.params.subscribe((res) => {
@@ -72,7 +72,7 @@ export class CompanyFormComponent implements OnInit {
   }
 
   //add company details
-  public saveCompany():void{
+  public saveCompany(): void {
     this.issubmited = true;
     if (this.companyform.valid) {
       if (this.comanyID) {
@@ -85,11 +85,11 @@ export class CompanyFormComponent implements OnInit {
               this.companyServices.listUpdate.next(value);
               this.router.navigate(['company']);
             },
-            error:()=>{
-               this.notification.showError(' Edit data fail','Edit')
+            error: () => {
+              this.notification.showError(' Edit data fail', 'Edit')
             },
-            complete:()=>{
-              this.notification.showSuccess(' Edit Data Successfully','Edit')
+            complete: () => {
+              this.notification.showSuccess(' Edit Data Successfully', 'Edit')
             }
           });
       } else {
@@ -101,56 +101,56 @@ export class CompanyFormComponent implements OnInit {
             this.issubmited = false;
             this.router.navigate(['company']);
           },
-          error:()=>{
-            this.notification.showError(' Add Data fail','Add')
-         },
-         complete:()=>{
-           this.notification.showSuccess(' Add Data Successfully','Add')
-         }
+          error: () => {
+            this.notification.showError(' Add Data fail', 'Add')
+          },
+          complete: () => {
+            this.notification.showSuccess(' Add Data Successfully', 'Add')
+          }
         });
       }
     }
   }
   // get company list
-  public getcompanydetailsById():void{
+  public getcompanydetailsById(): void {
     this.companyServices.getCompanyId(this.comanyID).subscribe({
       next: (res) => {
-      // value pach in form in edit time
+        // value pach in form in edit time
         this.companyform.patchValue(res);
       },
     });
   }
   // reset function
-  public reset():void{
+  public reset(): void {
     this.companyform.reset();
     this.issubmited = false;
   }
 
   // cencel edit
-  public cancel(){
+  public cancel() {
     const cancell = confirm('Are you sure you want to cancel?');
-    if(this,cancell){
+    if (this, cancell) {
       this.router.navigate(['company']);
-      this.notification.showSuccess("Cancel successfully",'Cancel')
+      this.notification.showSuccess("Cancel successfully", 'Cancel')
     }
   }
 
-  //selectFile(event) 
-	selectFile(event: any) {
-		// if(!event.target.files[0] || event.target.files[0].length == 0) {
-		// 	this.msg = 'You must select an image';
-		// 	return;
-		// }
-		var mimeType = event.target.files[0].type;
-		if (mimeType.match(/image\/*/) == null) {
-			this.msg = "Only images are supported";
-			return;
-		}
-		var reader = new FileReader();
-		reader.readAsDataURL(event.target.files[0]);
-		reader.onload = (_event) => {
-			this.msg = "";
-			this.url = reader.result; 
-		}
-	}
+  //selectFile(event)
+  selectFile(event: any) {
+    // if(!event.target.files[0] || event.target.files[0].length == 0) {
+    // 	this.msg = 'You must select an image';
+    // 	return;
+    // }
+    let mimeType = event.target.files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.msg = "Only images are supported";
+      return;
+    }
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (_event) => {
+      this.msg = "";
+      this.url = reader.result;
+    }
+  }
 }

@@ -10,12 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule ,BrowserAnimationsModule,ToastrModule.forRoot({
+  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ToastrModule.forRoot({
     closeButton: true,
     timeOut: 15000, // 15 seconds
     progressBar: true,
   }),
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],
