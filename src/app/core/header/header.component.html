@@ -1,3 +1,4 @@
+<!-- header start -->
 <div class="header">
   <nav class="navbar bg-dark ps-3 py-1 d-flex  align-items-center">
     <div></div>
@@ -9,12 +10,16 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Company</li>
+          <!-- breadcume -->
           <li class="breadcrumb-item" *ngFor='let breadcrumb of breadcrumbs'>
             <a class="text-white text-decoration-none" [routerLink]='[breadcrumb.url, breadcrumb.params]'>{{
               breadcrumb.label }}</a>
+
           </li>
+
         </ol>
       </nav>
     </div>
   </nav>
 </div>
+<!-- header end -->

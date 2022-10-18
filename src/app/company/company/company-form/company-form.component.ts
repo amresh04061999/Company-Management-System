@@ -26,7 +26,7 @@ export class CompanyFormComponent implements OnInit {
   statusbutton: string;
 
   // array  of selecter
-  users = [
+  subject = [
     { id: '1', name: 'angular' },
     { id: '2', name: 'java' },
     { id: '3', name: 'javascript' },
@@ -38,7 +38,8 @@ export class CompanyFormComponent implements OnInit {
     private companyServices: CompanyService,
     private router: Router,
     private activaterouter: ActivatedRoute,
-    private notification: NotificationService
+    private notification: NotificationService,
+
   ) {
     this.comanyID = 0;
     this.status = '',
@@ -70,7 +71,6 @@ export class CompanyFormComponent implements OnInit {
     // BUT TEXT CHANGE
     this.statusbutton = this.comanyID ? 'UPDATE' : 'ADD';
   }
-
   //add company details
   public saveCompany(): void {
     this.issubmited = true;
@@ -113,7 +113,7 @@ export class CompanyFormComponent implements OnInit {
   }
   // get company list
   public getcompanydetailsById(): void {
-    this.companyServices.getCompanyId(this.comanyID).subscribe({
+    this.companyServices.getCompanyId(Number(this.comanyID)).subscribe({
       next: (res) => {
         // value pach in form in edit time
         this.companyform.patchValue(res);
@@ -125,7 +125,6 @@ export class CompanyFormComponent implements OnInit {
     this.companyform.reset();
     this.issubmited = false;
   }
-
   // cencel edit
   public cancel() {
     const cancell = confirm('Are you sure you want to cancel?');
@@ -134,7 +133,6 @@ export class CompanyFormComponent implements OnInit {
       this.notification.showSuccess("Cancel successfully", 'Cancel')
     }
   }
-
   //selectFile(event)
   selectFile(event: any) {
     // if(!event.target.files[0] || event.target.files[0].length == 0) {

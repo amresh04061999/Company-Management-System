@@ -20,7 +20,8 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id',
-        component: CompanyFormComponent, data: { breadcrumb: 'EDIT COMPANY' }
+        component: CompanyFormComponent, data: { breadcrumb: 'EDIT COMPANY' },
+
       },
     ],
   },
