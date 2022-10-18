@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <ng-select [items]="users" bindLabel="name" [multiple]="true" placeholder="Select tag" class="mt-2"
+    <ng-select [items]="subject" bindLabel="name" [multiple]="true" placeholder="Select tag" class="mt-2"
       formControlName="selecttag">
     </ng-select>
     <div
@@ -34,7 +34,7 @@
         <input type="file" (change)="selectFile($event)" class="file form-control" formControlName="imagefile">
       </p>
       <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
-      <div><img [src]="url" *ngIf="url" width="300" class="border border-1 border-dark"></div>
+      <div><img [src]="url" *ngIf="url" width="200" class="border border-1 border-dark"></div>
       <div
         *ngIf="validator['imagefile'].invalid && (issubmited || validator['imagefile'].touched || validator['imagefile'].dirty )">
         <div *ngIf="validator['imagefile'].errors?.['required']" class="text-danger">

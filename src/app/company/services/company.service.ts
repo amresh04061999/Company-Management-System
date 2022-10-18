@@ -7,7 +7,7 @@ import { Company } from '../model/company.model';
 export class CompanyService {
   // Create subject add
   public listCompany: Subject<Company>;
-  // Create subject wditw
+  // Create subject wdit
   public listUpdate: Subject<Company>;
 
   public baseURL: string;
@@ -20,8 +20,12 @@ export class CompanyService {
     // Create subject edit list update
     this.listUpdate = new Subject();
   }
+  /**
+   *  add Company in jsonserver
+   * @param company
+   * @returns array
+   */
 
-  // add Company in jsonserver
   addComapny(company: Company): Observable<Company> {
     const URL: string = `${this.baseURL}company`;
     return this._http.post<Company>(URL, company);

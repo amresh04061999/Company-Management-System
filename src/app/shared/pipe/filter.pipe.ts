@@ -10,9 +10,12 @@ export class FilterPipe implements PipeTransform {
     if (!searchText) return items;
     searchText = searchText.toLowerCase();
     return items.filter(
-      (item: any) =>
-        item.companyname.includes(searchText) ||
-        item.companydescription.includes(searchText) 
-    );
+      (item: any) => {
+        return JSON.stringify(item).includes(searchText)
+      });
+    // this is search one by one using name
+    // item.companyname.includes(searchText) ||
+    // item.companydescription.includes(searchText)
+
   }
 }

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
-
 @Component({
   selector: 'app-company-list',
   templateUrl: './company-list.component.html',
@@ -38,7 +37,6 @@ export class CompanyListComponent implements OnInit {
       this.companylist.splice(i, 1, result);
     });
   }
-
   //  Get CompanyDetails
   public getCompanyDetails() {
     this.companyServices.getCompany().subscribe({
@@ -63,7 +61,6 @@ export class CompanyListComponent implements OnInit {
         },
         complete: () => {
           this.notification.showSuccess(`Delete successfully ${item.companyname}`, "Delete")
-
         },
       });
     }
@@ -71,7 +68,6 @@ export class CompanyListComponent implements OnInit {
       this.notification.showInfo("Cancel successfully", "Cancel")
     }
   }
-
   // Open form
   public editcomapny(item: Company): void {
     this.router.navigate(['company/edit', item.id]);

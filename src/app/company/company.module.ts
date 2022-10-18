@@ -24,6 +24,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
   ],
+
   providers: [CompanyService],
 })
 export class CompanyModule { }

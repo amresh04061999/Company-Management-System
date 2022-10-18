@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit {
   public id: any
   breadcrumbs: any;
   constructor(private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+
+  ) {
   }
   ngOnInit(): void {
     this.router.events
@@ -23,16 +25,12 @@ export class HeaderComponent implements OnInit {
       }))
       .pipe(filter(route => route.outlet === PRIMARY_OUTLET))
       .subscribe(route => {
-
         let snapshot = this.router.routerState.snapshot;
         this.breadcrumbs = [];
         let url = snapshot.url;
         let routeData = route.snapshot.data;
-
-        console.log(routeData);
         let label = routeData['breadcrumb'];
         let params = snapshot.root.params;
-
         this.breadcrumbs.push({
           url: url,
           label: label,

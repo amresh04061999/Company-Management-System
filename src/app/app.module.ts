@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ToastrModule.forRoot({
     closeButton: true,
-    timeOut: 15000, // 15 seconds
+    timeOut: 5000, // 15 seconds
     progressBar: true,
   }),
 
