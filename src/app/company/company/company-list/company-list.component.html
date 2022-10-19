@@ -1,11 +1,10 @@
 <div class="p-3">
-  <div class="d-flex justify-content-between mb-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
       <h3>COMPANY</h3>
     </div>
     <div>
-      <button type="button" class="btn btn-success rounded-circle" (click)="addcompany()"><span
-          class="bs-3">+</span></button>
+      <a class="btn" (click)="addcompany()"><span class="bi bi-plus-circle fs-2 text-success"></span></a>
     </div>
   </div>
   <div class="mb-3">
@@ -17,32 +16,24 @@
         <tr>
           <th scope="col">Logo</th>
           <th scope="col">ComapnyName</th>
-          <!-- <th scope="col">Company-Description</th> -->
-          <!-- <th scope="col">Select Tag</th> -->
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of companylist | filter:search ">
-          <td>
-            <span class="circle border border-dark rounded-circle">{{item.companyname |
-              fcharactermarge}}</span>
-          </td>
-          <td>
-            <span (click)="editcomapny(item)">{{item.companyname}}</span>
-          </td>
-          <!-- <td>
-            <span>{{item.companydescription}}</span>
-          </td> -->
-          <!-- <td>
-            <span>{{item.selecttag.name}}</span>
-          </td> -->
-          <!-- <td>
-            <span> <img src="" width="100px">{{item.imagefile}}</span>
-          </td> -->
-          <td><button type="button" class="btn btn-danger " (click)="deleteCompany(item)"><i
-                class="bi bi-trash"></i></button></td>
-        </tr>
+        <ng-container *ngIf="( companylist | filter : search) as result">
+          <tr *ngFor="let item of companylist | filter : search">
+            <td>
+              <span class="circle border border-dark rounded-circle">{{item.companyname |
+                fcharactermarge}}</span>
+            </td>
+            <td>
+              <span (click)="editcomapny(item)">{{item.companyname}}</span>
+            </td>
+            <td><button type="button" class="btn btn-danger " (click)="deleteCompany(item)"><i
+                  class="bi bi-trash"></i></button></td>
+          </tr>
+          <p *ngIf="result.length === 0">No Record Found</p>
+        </ng-container>
       </tbody>
     </table>
   </div>

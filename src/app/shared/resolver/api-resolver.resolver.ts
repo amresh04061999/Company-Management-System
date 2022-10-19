@@ -13,17 +13,17 @@ import { CompanyService } from 'src/app/company/services/company.service';
 
 export class ApiResolverResolver implements Resolve<Company> {
 
-  constructor( private companyservices:CompanyService) {}
- 
-   /**
-   * resolve method
-   * @param route
-   * @param state
-   */
+  constructor(private companyServices: CompanyService) { }
+
+  /**
+  * resolve method
+  * @param route
+  * @param state
+  */
   resolve(route: ActivatedRouteSnapshot): Observable<Company> {
     let id = route.params['id'];
     console.log("get resolver")
-    return this.companyservices.getCompanyId(id)
+    return this.companyServices.getCompanyId(id)
   }
- 
+
 }
