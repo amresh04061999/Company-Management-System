@@ -1,180 +1,28 @@
 {
   "company": [
     {
-      "companyname": "hk softtronic",
-      "companydescription": "this is a software company",
+      "companyname": "zz",
+      "companydescription": "zz",
       "selecttag": [
         {
           "id": "1",
           "name": "angular"
-        },
-        {
-          "id": "2",
-          "name": "java"
         }
       ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
+      "imagefile": "images.jpg",
       "id": 1
     },
     {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
+      "companyname": "zzzz",
+      "companydescription": "zz",
       "selecttag": [
         {
           "id": "1",
           "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
         }
       ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
+      "imagefile": "C:\\fakepath\\images.jpg",
       "id": 2
-    },
-    {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 2
-    },
-    {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 2
-    },
-    {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 2
-    },
-    {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 2
-    },
-    {
-      "companyname": "rk software",
-      "companydescription": "this is a software company from surat",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "3",
-          "name": "javascript"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 2
-    },
-    {
-      "companyname": "hk softtronic",
-      "companydescription": "this is a software company",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "2",
-          "name": "java"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 1
-    },
-    {
-      "companyname": "hk softtronic",
-      "companydescription": "this is a software company",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "2",
-          "name": "java"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 1
-    },
-    {
-      "companyname": "hk softtronic",
-      "companydescription": "this is a software company",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "2",
-          "name": "java"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 1
-    },
-    {
-      "companyname": "hk softtronic",
-      "companydescription": "this is a software company",
-      "selecttag": [
-        {
-          "id": "1",
-          "name": "angular"
-        },
-        {
-          "id": "2",
-          "name": "java"
-        }
-      ],
-      "imagefile": "C:\\fakepath\\Screenshot_2022-08-21-14-38-19-43_f9ee0578fe1cc94de7482bd41accb329.jpg",
-      "id": 1
     }
   ]
 }

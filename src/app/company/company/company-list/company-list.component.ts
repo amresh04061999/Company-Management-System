@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
@@ -14,7 +14,9 @@ export class CompanyListComponent implements OnInit {
   //search variable
   public search: string;
   constructor(private router: Router, private companyServices: CompanyService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private activateroute:ActivatedRoute
+    
   ) {
     this.companylist = [];
     this.search = '';
@@ -69,8 +71,10 @@ export class CompanyListComponent implements OnInit {
     }
   }
   // Open form
-  public editcomapny(item: Company): void {
+  public editcomapny(item: Company) {
     this.router.navigate(['company/edit', item.id]);
+
+   
   }
   //  open form
   public addcompany(): void {
