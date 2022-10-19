@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
         let url = snapshot.url;
         let routeData = route.snapshot.data;
         let label = routeData['breadcrumb'];
-        let params = snapshot.root.params;
+        let params = snapshot.root.params
         this.breadcrumbs.push({
           url: url,
           label: label,

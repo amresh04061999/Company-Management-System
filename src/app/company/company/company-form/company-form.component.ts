@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/notification/notification.service';
+import { Company } from '../../model/company.model';
 import { CompanyService } from '../../services/company.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class CompanyFormComponent implements OnInit {
   public status: string;
   // change status button variable
   statusbutton: string;
-
+  public products:any;
   // array  of selecter
   subject = [
     { id: '1', name: 'angular' },
@@ -37,7 +38,7 @@ export class CompanyFormComponent implements OnInit {
     private fb: FormBuilder,
     private companyServices: CompanyService,
     private router: Router,
-    private activaterouter: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
     private notification: NotificationService,
 
   ) {
@@ -53,10 +54,10 @@ export class CompanyFormComponent implements OnInit {
       });
 
     // get comapny Id
-    this.activaterouter.params.subscribe((res) => {
+    this.activatedRouter.params.subscribe((res) => {
       this.comanyID = res['id'];
       if (this.comanyID) {
-        this.getcompanydetailsById();
+        // this.getcompanydetailsById();
       }
     });
   }
@@ -70,6 +71,17 @@ export class CompanyFormComponent implements OnInit {
     this.status = this.comanyID ? 'EDIT COMPANY' : 'ADD COMPANY';
     // BUT TEXT CHANGE
     this.statusbutton = this.comanyID ? 'UPDATE' : 'ADD';
+
+ /**
+   *  Patchv Value in form
+   * * @param activatedRouter
+   *  return 
+   */
+    this.activatedRouter.data.subscribe((res:any)=>{
+     this.companyform.patchValue(res.company)
+    })
+   
+   
   }
   //add company details
   public saveCompany(): void {
@@ -111,15 +123,17 @@ export class CompanyFormComponent implements OnInit {
       }
     }
   }
-  // get company list
-  public getcompanydetailsById(): void {
-    this.companyServices.getCompanyId(Number(this.comanyID)).subscribe({
-      next: (res) => {
-        // value pach in form in edit time
-        this.companyform.patchValue(res);
-      },
-    });
-  }
+
+  // // get company list
+  // public getcompanydetailsById(): void {
+  //   this.companyServices.getCompanyId(Number(this.comanyID)).subscribe({
+  //     next: (res) => {
+  //       // value pach in form in edit time
+  //       this.companyform.patchValue(res);
+  //     },
+  //   });
+  // }
+  
   // reset function
   public reset(): void {
     this.companyform.reset();
@@ -135,10 +149,7 @@ export class CompanyFormComponent implements OnInit {
   }
   //selectFile(event)
   selectFile(event: any) {
-    // if(!event.target.files[0] || event.target.files[0].length == 0) {
-    // 	this.msg = 'You must select an image';
-    // 	return;
-    // }
+  
     let mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.msg = "Only images are supported";
