@@ -8,8 +8,9 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public id: any
-  breadcrumbs: any;
+  public id: any;
+  public breadcrumbs: any;
+  public data: any;
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
 
@@ -25,20 +26,15 @@ export class HeaderComponent implements OnInit {
       }))
       .pipe(filter(route => route.outlet === PRIMARY_OUTLET))
       .subscribe(route => {
-        let snapshot = this.router.routerState.snapshot;
         this.breadcrumbs = [];
-        let url = snapshot.url;
         let routeData = route.snapshot.data;
-        let label = routeData['breadcrumb'];
-        let params = snapshot.root.params
-        this.breadcrumbs.push({
-          url: url,
-          label: label,
-          params: params
-        });
-
+        let label1 = routeData['company'];
+        if (routeData) {
+          this.data = routeData['breadcrumb'];
+        }
+        this.data = label1.companyname;
+        console.log(this.data);
       });
-
   }
 
 }

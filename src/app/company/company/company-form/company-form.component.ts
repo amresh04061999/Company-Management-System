@@ -25,7 +25,7 @@ export class CompanyFormComponent implements OnInit {
   public status: string;
   // change status button variable
   statusbutton: string;
-  public products:any;
+  public products: any;
   // array  of selecter
   subject = [
     { id: '1', name: 'angular' },
@@ -72,16 +72,14 @@ export class CompanyFormComponent implements OnInit {
     // BUT TEXT CHANGE
     this.statusbutton = this.comanyID ? 'UPDATE' : 'ADD';
 
- /**
-   *  Patchv Value in form
-   * * @param activatedRouter
-   *  return 
-   */
-    this.activatedRouter.data.subscribe((res:any)=>{
-     this.companyform.patchValue(res.company)
+    /**
+      *  Patchv Value in form
+      * * @param activatedRouter
+      *  return
+      */
+    this.activatedRouter.data.subscribe((res) => {
+      this.companyform.patchValue(res['company'])
     })
-   
-   
   }
   //add company details
   public saveCompany(): void {
@@ -133,7 +131,7 @@ export class CompanyFormComponent implements OnInit {
   //     },
   //   });
   // }
-  
+
   // reset function
   public reset(): void {
     this.companyform.reset();
@@ -149,7 +147,7 @@ export class CompanyFormComponent implements OnInit {
   }
   //selectFile(event)
   selectFile(event: any) {
-  
+
     let mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.msg = "Only images are supported";

@@ -1,7 +1,7 @@
 {
   "company": [
     {
-      "companyname": "zz",
+      "companyname": "hk softronic ",
       "companydescription": "zz",
       "selecttag": [
         {
@@ -13,7 +13,7 @@
       "id": 1
     },
     {
-      "companyname": "zzzz",
+      "companyname": "1 rivet",
       "companydescription": "zz",
       "selecttag": [
         {
@@ -23,6 +23,174 @@
       ],
       "imagefile": "C:\\fakepath\\images.jpg",
       "id": 2
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
+    },
+    {
+      "companyname": "hk softronic ",
+      "companydescription": "zz",
+      "selecttag": [
+        {
+          "id": "1",
+          "name": "angular"
+        }
+      ],
+      "imagefile": "images.jpg",
+      "id": 1
     }
   ]
 }

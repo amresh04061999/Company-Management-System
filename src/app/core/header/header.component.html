@@ -11,12 +11,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Company</li>
           <!-- breadcume -->
-          <li class="breadcrumb-item" *ngFor='let breadcrumb of breadcrumbs'>
-            <a class="text-white text-decoration-none" [routerLink]='[breadcrumb.url, breadcrumb.params]'>{{
-              breadcrumb.label }}</a>
-
-          </li>
-
+          <li class="breadcrumb-item">{{data}}</li>
         </ol>
       </nav>
     </div>
