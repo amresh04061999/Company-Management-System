@@ -55,18 +55,18 @@ export class CompanyFormComponent implements OnInit {
     this.status = '',
       this.statusbutton = '',
       this.base64String = '';
-      this.imagePath = '';
-      this.isImagevalue = false;
-      this.companyId = "";
-      //  form validation
-      this.companyform = this.fb.group({
-        companyname: ['', [Validators.required]],
-        companydescription: ['', [Validators.required]],
-        selecttag: ['', [Validators.required]],
-        imagefile: ['', [Validators.required]],
-        companyPath: [''],
-        companyLogoName: ['']
-      });
+    this.imagePath = '';
+    this.isImagevalue = false;
+    this.companyId = "";
+    //  form validation
+    this.companyform = this.fb.group({
+      companyname: ['', [Validators.required]],
+      companydescription: ['', [Validators.required]],
+      selecttag: ['', [Validators.required]],
+      imagefile: ['', [Validators.required]],
+      companyPath: [''],
+      companyLogoName: ['']
+    });
 
     // get comapny Id
     this.activatedRouter.params.subscribe((res) => {
@@ -92,9 +92,16 @@ export class CompanyFormComponent implements OnInit {
       * * @param activatedRouter
       *  return
       */
-        this.activatedRouter.data.subscribe((res) => {
+    this.activatedRouter.data.subscribe((res) => {
+      this.companyId = res['company']?.id;
+      if (!this.companyId) {
+        this.isImagevalue = false;
+      } else {
+        this.isImagevalue = true;
         this.companyform.patchValue(res['company']);
-        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.companyform.get('companyPath')?.value);
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(this.companyform.get('companyPath')?.value);
+      }
+
     })
   }
   //add company details
@@ -105,8 +112,8 @@ export class CompanyFormComponent implements OnInit {
         /**
          * Function for call the HTTP put service method
          */
-        this.companyform.controls['companyPath'].setValue(this.base64String);
-        this.companyform.controls['companyLogoName'].setValue(this.imageFile.name);
+        this.companyform.controls['companyPath'].patchValue(this.base64String);
+        this.companyform.controls['companyLogoName'].patchValue(this.imageFile.name);
         this.companyServices
           .editeComapny(this.companyform.value, this.comanyID)
           .subscribe({
@@ -129,7 +136,7 @@ export class CompanyFormComponent implements OnInit {
         */
         this.companyform.controls['companyLogoName'].setValue(this.imageFile.name);
         this.companyform.controls['companyPath'].setValue(this.base64String);
-       
+
         this.companyServices.addComapny(this.companyform.value).subscribe({
           next: (value) => {
             this.companyServices.listCompany.next(value);
@@ -158,12 +165,16 @@ export class CompanyFormComponent implements OnInit {
   //   });
   // }
 
-  // reset function
+  /**
+   * Reset companyForm
+   */
   public reset(): void {
     this.companyform.reset();
     this.issubmited = false;
   }
-  // cencel edit
+  /**
+    * Cancel Edit company
+    */
   public cancel() {
     const cancell = confirm('Are you sure you want to cancel?');
     if (this, cancell) {
@@ -171,35 +182,32 @@ export class CompanyFormComponent implements OnInit {
       this.notification.showSuccess("Cancel successfully", 'Cancel')
     }
   }
-/**
-   * Function for company logo uploading
-   * @param event 
-   */
+  /**
+     * Function for company logo uploading
+     * @param event
+     */
   selectFile(event: any) {
-// show message
+    /**
+     *show message validation
+     */
     let mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.msg = "Only images are supported";
       return;
     }
-      /**
-       * image priview and convert base64
-       */
-      
-       if (event.target.files.length > 0) {
-        this.imageFile = event.target.files[0];
-
-      }
-      
+    if (event.target.files.length > 0) {
+      this.imageFile = event.target.files[0];
+    }
+    /**
+     * image priview and convert base64
+     */
     let reader = new FileReader();
     reader.onload = () => {
       // convert base64
-      this.base64String = String(reader.result).replace("data:", "")
-      .replace(/^.+,/, "");
-      this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.base64String);
-      // show message or image in form
+      this.base64String = String(reader.result)
+      this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(this.base64String);
+      // show message or image priview
       this.msg = "";
-      this.url = reader.result;
     }
     reader.readAsDataURL(this.imageFile);
     if (this.imageFile) {

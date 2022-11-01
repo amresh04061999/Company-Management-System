@@ -31,7 +31,7 @@
               <span (click)="editcomapny(item)">{{item.companyname}}</span>
             </td>
             <td>
-              <img [src]="'data:image/png;base64,'+item.companyPath" width="50px" height="50px" class="rounded-circle">
+              <img [src]="item.companyPath" width="50px" height="50px" class="rounded-circle">
             </td>
             <td><button type="button" class="btn btn-danger " (click)="deleteCompany(item)"><i
                   class="bi bi-trash"></i></button></td>
