@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Company } from '../../model/company.model';
@@ -15,7 +16,7 @@ export class CompanyListComponent implements OnInit {
   public search: string;
   constructor(private router: Router, private companyServices: CompanyService,
     private notification: NotificationService,
-    private activateroute:ActivatedRoute
+    private activateroute:ActivatedRoute,
     
   ) {
     this.companylist = [];

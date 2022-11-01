@@ -10,12 +10,13 @@
   <div class="mb-3">
     <input class="form-control mr-sm-2" type="search" placeholder="Search.." [(ngModel)]="search">
   </div>
-  <div class="overflow-auto " style="height: 600px">
+  <div class="overflow-auto " style="height: 350px">
     <table class="table position-relative ">
       <thead class="position-sticky w-100 top-0 bg-white">
         <tr>
           <th scope="col">Logo</th>
           <th scope="col">ComapnyName</th>
+          <th scope="col">image</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -28,6 +29,9 @@
             </td>
             <td>
               <span (click)="editcomapny(item)">{{item.companyname}}</span>
+            </td>
+            <td>
+              <img [src]="'data:image/png;base64,'+item.companyPath" width="50px" height="50px" class="rounded-circle">
             </td>
             <td><button type="button" class="btn btn-danger " (click)="deleteCompany(item)"><i
                   class="bi bi-trash"></i></button></td>
