@@ -4,4 +4,6 @@ export class Company {
   companydescription?: string;
   selecttag?: string;
   imagefile?: string;
+  companyLogoName!:string;
+  companyPath!:any;
 }

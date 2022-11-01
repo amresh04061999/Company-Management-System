@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Company } from '../../model/company.model';
@@ -26,6 +27,13 @@ export class CompanyFormComponent implements OnInit {
   // change status button variable
   statusbutton: string;
   public products: any;
+  public companyId: string;
+  // image
+  public base64String: any;
+  public imagePath: any;
+  public imageFile!: File;
+  public isImagevalue: boolean;
+  public company_name!: string;
   // array  of selecter
   subject = [
     { id: '1', name: 'angular' },
@@ -40,17 +48,24 @@ export class CompanyFormComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private notification: NotificationService,
+    private _sanitizer: DomSanitizer
 
   ) {
     this.comanyID = 0;
     this.status = '',
       this.statusbutton = '',
+      this.base64String = '';
+      this.imagePath = '';
+      this.isImagevalue = false;
+      this.companyId = "";
       //  form validation
       this.companyform = this.fb.group({
         companyname: ['', [Validators.required]],
         companydescription: ['', [Validators.required]],
         selecttag: ['', [Validators.required]],
         imagefile: ['', [Validators.required]],
+        companyPath: [''],
+        companyLogoName: ['']
       });
 
     // get comapny Id
@@ -77,8 +92,9 @@ export class CompanyFormComponent implements OnInit {
       * * @param activatedRouter
       *  return
       */
-    this.activatedRouter.data.subscribe((res) => {
-      this.companyform.patchValue(res['company'])
+        this.activatedRouter.data.subscribe((res) => {
+        this.companyform.patchValue(res['company']);
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.companyform.get('companyPath')?.value);
     })
   }
   //add company details
@@ -86,6 +102,11 @@ export class CompanyFormComponent implements OnInit {
     this.issubmited = true;
     if (this.companyform.valid) {
       if (this.comanyID) {
+        /**
+         * Function for call the HTTP put service method
+         */
+        this.companyform.controls['companyPath'].setValue(this.base64String);
+        this.companyform.controls['companyLogoName'].setValue(this.imageFile.name);
         this.companyServices
           .editeComapny(this.companyform.value, this.comanyID)
           .subscribe({
@@ -103,7 +124,12 @@ export class CompanyFormComponent implements OnInit {
             }
           });
       } else {
-        // edite company
+        /**
+        * Function for call the HTTP post service method
+        */
+        this.companyform.controls['companyLogoName'].setValue(this.imageFile.name);
+        this.companyform.controls['companyPath'].setValue(this.base64String);
+       
         this.companyServices.addComapny(this.companyform.value).subscribe({
           next: (value) => {
             this.companyServices.listCompany.next(value);
@@ -145,19 +171,39 @@ export class CompanyFormComponent implements OnInit {
       this.notification.showSuccess("Cancel successfully", 'Cancel')
     }
   }
-  //selectFile(event)
+/**
+   * Function for company logo uploading
+   * @param event 
+   */
   selectFile(event: any) {
-
+// show message
     let mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.msg = "Only images are supported";
       return;
     }
+      /**
+       * image priview and convert base64
+       */
+      
+       if (event.target.files.length > 0) {
+        this.imageFile = event.target.files[0];
+
+      }
+      
     let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (_event) => {
+    reader.onload = () => {
+      // convert base64
+      this.base64String = String(reader.result).replace("data:", "")
+      .replace(/^.+,/, "");
+      this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.base64String);
+      // show message or image in form
       this.msg = "";
       this.url = reader.result;
+    }
+    reader.readAsDataURL(this.imageFile);
+    if (this.imageFile) {
+      this.isImagevalue = true;
     }
   }
 }
