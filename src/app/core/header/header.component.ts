@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
         if (routeData) {
           this.data = routeData['breadcrumb'];
         }
-        this.data = label1.companyname;
+        this.data = label1?.companyname;
         console.log(this.data);
       });
   }
