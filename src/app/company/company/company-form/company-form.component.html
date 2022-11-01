@@ -34,7 +34,7 @@
         <input type="file" (change)="selectFile($event)" class="file form-control" formControlName="imagefile">
       </p>
       <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
-      <div><img [src]="url" *ngIf="url" width="200" class="border border-1 border-dark"></div>
+      <div><img [src]="imagePath" *ngIf="isImagevalue" width="200" class="border border-1 border-dark"></div>
       <div
         *ngIf="validator['imagefile'].invalid && (issubmited || validator['imagefile'].touched || validator['imagefile'].dirty )">
         <div *ngIf="validator['imagefile'].errors?.['required']" class="text-danger">
